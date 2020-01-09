@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step02_Event.html</title>
+</head>
+<body>
+    <input type="text" id="one"/>
+    <button id="sendBtn">전송</button>
+    <p id="console"></p>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        // .on("이벤트명", 콜백 함수)
+        $("#sendBtn").on("click", function(){
+            //1. input 요소에 입력한 value 값을 읽어온다.
+            var msg=$("#one").val();
+            //2. 읽어온 값을 p요소의 innerText 로 넣어주기
+            $("#console").text(msg);
+        });
+    </script>   
+</body>
+</html>

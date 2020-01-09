@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step06_EtcEvent2.html</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        // 문서 객체가 모두 만들어 졌을때(이미지 로딩 제외) 호출되는 함수 등록
+        /*
+        window.addEventListener("DOMCcontentLoaded", function(){
+            $("p").text("바뀌었음");
+        });
+        */
+        // 위의 작업을 대체 해주는 jquery 형식
+        // $(document).ready(function(){});
+
+        // 위 주석된 코딩 내용을 줄여서 아래와 같이 할 수 있다.
+        $(function(){
+            $("p").text("바뀌었음");
+        });
+    </script>
+</head>
+<body>
+    <p>p 요소 입니다.</p>
+    <img src="images/image1.png"/>
+    <img src="images/image2.png"/>
+    <img src="images/image3.png"/>
+    <script>
+        // window 창의 크기가 바뀌었을떄 호출되는 함수 등록
+        // 모바일 기기에서는 가로 세로가 바뀌어도 호출된다.
+        $(window).on("resize",function(){
+            console.log("resize!");
+        });
+
+        // 스크롤을 할 때 마다 여러번 호출된다.
+        $(window).on("scroll", function(){
+            console.log("scroll!");
+        });
+    </script>
+</body>
+</html>

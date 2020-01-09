@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step07_MyPlugin.html</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery.gura.js"></script>
+    <script>
+        (function($){
+            //새로운 액션 정의하기
+            $.fn.gura=function(options){
+                //기본 설정값 정의
+                var settings=$.extend({
+                    msg:"안녕! 나는 구라야~",
+                    color:"#fff"
+                }, options);
+
+                //this 는 $(선택자)  에 의해 선택된 jquery 배열이다 
+
+                this
+                .text(settings.msg)
+                .css("background-color", settings.color);
+
+                //return 값 결정하기
+                return this;
+            };
+        })(jQuery);
+    </script>
+</head>
+<body>
+  <p id="one">p 요소 입니다.</p>
+  <p id="two">p 요소 입니다.</p>
+  <p id="three">p 요소 입니다.</p>
+  <script>
+      $("#one").gura();
+      $("#two").gura({
+          msg:"나는 원숭이~",
+          color:"#00ffff"
+      });
+      $("#three").gura({color:"#ffff00"});
+  </script>  
+</body>
+</html>

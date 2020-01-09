@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step03_Effect2.html</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+            cursor: pointer;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="resetBtn">Reset</button>
+    <div class="box">div</div>
+    <div class="box">div</div>
+    <div class="box">div</div>
+    <div class="box">div</div>
+    <div class="box">div</div>
+    <img src="images/kim1.png" />
+    <!-- 외부 javascript 인 jQuery 로딩하기 -->
+    <script src="js/jquery-3.3.1.js"></script>
+    <!-- 내부 javascript 로딩 -->
+    <script>
+        // .box 에 mousedown 이벤트가 일어나면 호출되는 함수 등록
+        $(".box").on("mousedown", function () {
+            // $(this) 는 이벤트가 일어난 바로 그요소를 선택
+            // $(this).fadeOut();
+            $(this).fadeOut({
+                duration: 1000,
+                complete: function () {
+                    alert("뿅~");
+                }
+            });
+        });
+        // #resetBtn 에 click 이벤트가 일어나면 호출되는 함수 등록
+        $("#resetBtn").on("click", function () {
+            $(".box").fadeIn();
+        });
+    </script>
+</body>
+
+</html>

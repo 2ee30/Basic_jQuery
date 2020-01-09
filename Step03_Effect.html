@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step03_Effect.html</title>
+</head>
+<body>
+    <button id="hideBtn">숨기기</button>
+    <button id="showBtn">보이기</button>
+    <button id="toggleBtn">토글</button>
+    <br/>
+    <img src="images/kim1.png" id="one"/>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        //숨기기 버튼을 눌렀을때 실행할 함수 등록 
+        $("#hideBtn").on("click", function(){
+            //$("#one").css("display", "none");
+            //$("#one").hide();
+            //$("#one").hide(1000);
+            // $("#one").hide(1000, function(){
+            //     alert("뿅~");
+            // });
+            $("#one").hide({
+                duration: 1000,
+                complete: function(){
+                    alert("뿅~");
+                }
+            });
+        });
+        $("#showBtn").on("click", function(){
+            $("#one").show();
+        });
+        $("#toggleBtn").on("click", function(){
+            $("#one").toggle();
+        });
+    </script>
+</body>
+</html>

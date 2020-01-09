@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step01_Selector.html</title>
+
+</head>
+<body>
+    <p id="one">p1</p>
+    <p class="my-class">p2</p>
+    <p class="my-class">p3</p>
+    <input type="text" id="two"/>
+    <input type="text"/>
+    <select id="three">
+        <option value="">선택</option>
+        <option value="piano">피아노</option>
+        <option value="reading">독서</option>
+        <option value="tennis">테니스</option>
+    </select>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        //모든 p 요소를 선택해서 글자색을 파란색으로 바꾸기
+        $("p").css("color","blue");
+        //클래스명이  my-class 인 요소를 선택해서 
+        $(".my-class")
+        .text("김구라")  //innerText 를 "김구라" 로
+        .css("background-color","yellow");//배경색을 노란색으로
+        //아이디가 one  인 요소를 선택해서 글자의 크기를 30px 로
+        $("#one").css("font-size", "30px");
+        //아이디가 two 인 요소를 선택해서 value 값 "해골" 넣어주기
+        $("#two").val("해골");
+        // select 요소의 value 값을 강제 지정할수도 있다. 
+        $("#three").val("piano");
+
+        // innerText 값 읽어오기
+        var result1=$("#one").text();
+        // value 값 읽어오기
+        var result2=$("#two").val();
+        // css 의 font-size 값 읽어오기
+        var result3=$("#one").css("font-size");
+    </script>
+</body>
+</html>

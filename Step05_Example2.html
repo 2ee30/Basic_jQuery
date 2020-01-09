@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step05_Example2.html</title>
+    <style>
+        .wrapper{
+            width: 400px;
+            height: 400px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+        .box{
+            border: 1px solid blue;
+            width: 2000px;
+            overflow: auto; /* float: left 된 요소를 감싸도록 */
+            transition: margin-left 0.4s ease-out;
+        }
+        .box img{
+            width: 400px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <img src="images/image1.png"/>
+            <img src="images/image2.png"/>
+            <img src="images/image3.png"/>
+            <img src="images/image4.png"/>
+            <img src="images/image5.png"/>
+        </div>
+    </div>
+    <button id="prevBtn">prev</button>
+    <button id="nextBtn">next</button>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        // .box 의 margin-left 의 값을 관리할 변수
+        var mLeft=0;
+        // 이전 버튼 동작
+        $("#prevBtn").click(function(){
+            if(mLeft == 0){
+                return;
+            }
+            mLeft += 400;
+            $(".box").css("margin-left", mLeft+"px");
+        });
+        // 다음 버튼 동작
+        $("#nextBtn").click(function(){
+            if(mLeft == -1600){
+                mLeft=0;
+                $(".box").css("margin-left", mLeft+"px");
+                return;
+            }
+            mLeft -= 400;
+            $(".box").css("margin-left", mLeft+"px");
+        });
+        // 마우스를 올렸는지 여부
+        var isMouseOver=false;
+
+        $(".wrapper").on("mouseover",function(){
+            isMouseOver=true;
+        });
+        $(".wrapper").on("mouseout",function(){
+            isMouseOver=false;
+        });
+
+        setInterval(function(){
+            if(isMouseOver){ // 마우스가 오버 되었을때
+                return; // 자동으로 움직이지 않게 함수를 종료
+            }
+            if(mLeft == -1600){
+                mLeft=0;
+                $(".box").css("margin-left", mLeft+"px");
+                return;
+            }
+            mLeft -= 400;
+            $(".box").css("margin-left", mLeft+"px");
+        }, 3000);
+    </script>
+</body>
+</html>

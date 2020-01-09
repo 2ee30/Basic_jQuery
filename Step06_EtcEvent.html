@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step06_EtcEvent.html</title>
+    <style>
+        p{
+            background-color: yellow;
+        }
+    </style>
+    <!-- jQuery 로딩 -->
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        // 문서 로딩이 완벽히 끝났을 때 호출되는 함수 등록
+        /*
+        window.onload=function(){
+            $("p").text("바뀌었음");
+        };
+        */
+        // jQurey 형식으로 사용하면 아래와 같다.
+        $(window).ready(function(){
+            $("p").text("바뀌었음");
+        });
+    </script>
+</head>
+<body>
+    <p> p 요소 입니다. </p>
+    <button id="myBtn">눌러보셈</button>
+</body>
+</html>

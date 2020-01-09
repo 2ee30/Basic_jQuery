@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step08_plugin_scroll.html</title>
+    <style>
+        .spacer{
+            height: 500px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#one">one</a></li>
+        <li><a href="#two">two</a></li>
+        <li><a href="#three">three</a></li>
+    </ul>
+    <div class="spacer"></div>
+    <p id="one">one</p>
+    <div class="spacer"></div>
+    <p id="two">two</p>
+    <div class="spacer"></div>
+    <p id="three">three</p>
+    <div class="spacer"></div>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery.smooth-scroll.js"></script>
+    <script>
+        $("a").smoothScroll({
+            speed:1000
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step04_Class.html</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+            cursor: pointer;
+            /* transition 효과를 주고 싶다면 */
+            transition: all 0.3s ease-out;
+            /* 
+                transition-property: all;
+                transition-duration: 0.4s;
+                transition-timing-function: ease-out;
+                위 같은 내용을 줄여 한줄로 사용.
+             */
+        }
+
+        /* 특정 시점에 적용할 css 를 클래스 선택자로 정의해 놓는다. */
+        .active {
+            width: 120px;
+            height: 120px;
+            background-color: yellowgreen;
+            border-width: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        // .box div를 클릭하면 width, height 가 각각 120px 로
+        // 변하도록 해보세요
+        $(".box").on("click", function () {
+            $(this).addClass("active");
+        });
+        $(".box").on("mouseout", function () {
+            $(this).removeClass("active");
+        });
+    </script>
+</body>
+
+</html>

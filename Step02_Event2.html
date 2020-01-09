@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step02_Event2.html</title>
+    <style>
+        #toDoList li:hover{
+            background-color: yellow;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="inputMsg" placeholder="할일입력..."/>
+    <button id="addBtn">추가</button>
+    <h1>할일 목록 입니다.</h1>
+    <ul id="toDoList">
+        <li>하나</li>
+        <li>두울</li>
+    </ul>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        $("#addBtn").on("click", function(){
+            add();
+        });
+
+        $("#inputMsg").on("keyup", function(event){
+            //눌러진 키의 코드값 읽어오기
+            var keyCode=event.keyCode;
+            if(keyCode==13){//엔터키를 눌렀다면
+                add();
+            }
+        });
+
+        function add(){
+            //입력한 문자열을 읽어와서 변수에 담고
+            var msg=$("#inputMsg").val();
+            //li요소를 만들어서 innerText 출력하고 #toDoList 에 추가하기
+            $("<li/>").text(msg).appendTo("#toDoList");
+            //입력창 초기화 하고 포커스 주기 
+            $("#inputMsg").val("").focus();     
+        }
+        /*
+            - 현재 존재하거나 미래에 추가될 요소에도 이벤트 처리하는 방법
+            $(document).on("이벤트명", "선택자", 콜백 함수);
+        */
+        $(document).on("click", "#toDoList li", function(){
+
+            var isDelete=confirm("삭제 하세겠습니까?");
+            if(isDelete){
+                //이벤트가 일어난 바로 그 요소를 선택해서 제거하기
+                $(this).remove();
+            }
+        });
+    </script>   
+</body>
+</html>
